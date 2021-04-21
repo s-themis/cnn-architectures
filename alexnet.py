@@ -46,6 +46,7 @@ def alexnet():
     # Fully-connected layers.
     x = layers.Flatten()(x)
     x = layers.Dense(units=4096, activation="relu")(x)
+    x = layers.Dropout(rate=0.5)(x)
     x = layers.Dense(units=4096, activation="relu")(x)
     x = layers.Dropout(rate=0.5)(x)
 
