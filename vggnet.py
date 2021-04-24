@@ -52,4 +52,4 @@ if __name__ == "__main__":
 
     model = vgg16()
     model.summary()
-    dot = plot_model(model, to_file="vgg16.png", show_shapes=True)
+    plot_model(model, to_file="vgg16.png", show_shapes=True)

@@ -65,4 +65,4 @@ if __name__ == "__main__":
 
     model = alexnet()
     model.summary()
-    dot = plot_model(model, to_file="alexnet.png", show_shapes=True)
+    plot_model(model, to_file="alexnet.png", show_shapes=True)
