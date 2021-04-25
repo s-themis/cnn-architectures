@@ -6,7 +6,6 @@ def vgg16():
         for _ in range(conv_layers):
             x = layers.Conv2D(filters=filters,
                               kernel_size=3,
-                              strides=1,
                               padding="same",
                               activation="relu")(x)
         x = layers.MaxPool2D(pool_size=2, strides=2)(x)
