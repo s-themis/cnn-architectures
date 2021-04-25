@@ -1,15 +1,21 @@
 from tensorflow.keras import layers, Model
 
 
+def conv_block(x, conv_layers, filters):
+
+    # Homogeneous convolutional layers
+    for _ in range(conv_layers):
+        x = layers.Conv2D(filters=filters,
+                          kernel_size=3,
+                          padding="same",
+                          activation="relu")(x)
+
+    # Downsampling by MaxPool2D
+    x = layers.MaxPool2D(pool_size=2, strides=2)(x)
+    return x
+
+
 def vgg16():
-    def conv_block(x, conv_layers, filters):
-        for _ in range(conv_layers):
-            x = layers.Conv2D(filters=filters,
-                              kernel_size=3,
-                              padding="same",
-                              activation="relu")(x)
-        x = layers.MaxPool2D(pool_size=2, strides=2)(x)
-        return x
 
     # Input.
     x_in = layers.Input(shape=(224, 224, 3))
